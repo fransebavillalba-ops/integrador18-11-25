@@ -1,0 +1,662 @@
+/* =========================================================
+   TEMA AZUL CLARO + ESTILO FAST FOOD
+   Compatible con todos los HTML del proyecto BurgerLab
+========================================================= */
+
+/* ------------------------------
+   VARIABLES DE COLOR
+------------------------------ */
+:root {
+  --bg: #e0f2ff;         /* azul muy claro */
+  --bg-soft: #f5f9ff;    /* fondo de secciones / tarjetas */
+  --surface: #ffffff;    /* tarjetas blancas */
+  --surface-soft: #f1f5f9;
+  --border: #d1d5db;
+  --text: #111827;       /* casi negro */
+  --muted: #6b7280;
+  --primary: #fbbf24;    /* amarillo tipo cheddar */
+  --primary-dark: #f97316;/* naranja intenso */
+  --ok: #22c55e;
+  --error: #ef4444;
+}
+
+/* ------------------------------
+   BASE
+------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #bfdbfe, #60a5fa, #2563eb);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+a {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+a:hover {
+  color: #c0560b;
+}
+
+/* Contenedor general */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 1.2rem 0 2.5rem;
+}
+
+/* ------------------------------
+   HEADER / NAVBAR
+------------------------------ */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#btnMenu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  cursor: pointer;
+}
+
+/* Navegación principal */
+#mainNav {
+  display: flex;
+  gap: 0.8rem;
+}
+
+#mainNav a {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+}
+
+#mainNav a:hover {
+  background: var(--surface-soft);
+  border-color: var(--border);
+}
+
+/* ------------------------------
+   BOTONES
+------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: var(--primary-dark);
+  border: 1px solid transparent;
+  color: #111827;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.15s ease;
+  font-weight: 600;
+}
+.btn:hover {
+  background: var(--primary);
+  transform: translateY(-1px);
+}
+
+.btn.outline {
+  background: transparent;
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+.btn.outline:hover {
+  background: var(--surface-soft);
+}
+
+.btn.small {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.8rem;
+}
+/* ------------------------------
+   HERO (INDEX) – versión más oscura + hamburguesa real
+------------------------------ */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 1rem 3.5rem;
+}
+
+/* Tarjeta blanca que contiene el texto */
+.hero-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 2.5rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.20);
+  border: 1px solid #d1d5db;
+}
+
+.hero-text {
+  max-width: 540px;
+}
+
+.hero h1 {
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: #0f172a; /* negro azulado */
+  margin: 0 0 0.6rem;
+}
+
+.hero p {
+  margin: 0 0 1.4rem;
+  color: #334155; /* gris más oscuro */
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Imagen grande de hamburguesa */
+.hero-visual {
+  justify-self: center;
+  width: 100%;
+  max-width: 430px;
+  height: 330px;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 3px solid #facc15; /* borde amarillo cheddar */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+  background-image: url("https://i.imgur.com/fJp1NPh.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    margin-top: 1.5rem;
+    height: 250px;
+    max-width: 300px;
+  }
+}
+
+
+/* Si tu index.html no tiene .hero-card y .hero-visual,
+   podés envolver el texto en <div class="hero-card hero-text">...</div>
+   y agregar al lado <div class="hero-visual"></div>. */
+
+/* ------------------------------
+   GRID GENERAL
+------------------------------ */
+.grid {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ------------------------------
+   SECCIONES GENERALES
+------------------------------ */
+.section {
+  margin-top: 2rem;
+}
+
+/* ------------------------------
+   TOOLBAR / FILTROS
+------------------------------ */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.toolbar h1,
+.toolbar h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.toolbar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+input[type="search"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select {
+  padding: 0.4rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+/* ------------------------------
+   PRODUCT CARDS (listado_box)
+------------------------------ */
+.product-card {
+  background: var(--surface);
+  padding: 0.8rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+/* IMÁGENES COMPLETAS (sin recortar) */
+.product-card img {
+  border-radius: 12px;
+  max-height: 220px;           /* tamaño moderado */
+  width: 100%;
+  object-fit: contain;         /* se ve la imagen completa */
+  background-color: #f3f4f6;   /* gris claro de fondo */
+  margin-bottom: 0.4rem;
+}
+
+.product-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.product-card p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.product-card .tag {
+  color: var(--primary-dark);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.product-card .price {
+  margin-top: 0.35rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* ------------------------------
+   TABLA (listado_tabla)
+------------------------------ */
+.table-wrap {
+  background: var(--surface);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  background: var(--surface-soft);
+}
+
+th,
+td {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  text-align: left;
+  font-weight: 600;
+}
+
+td img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;           /* que se vea completa también acá */
+  border-radius: 6px;
+  background-color: #f3f4f6;
+}
+
+/* ------------------------------
+   DETALLE DE PRODUCTO (producto.html)
+------------------------------ */
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 1.8rem;
+  align-items: flex-start;
+}
+
+.product-detail h1 {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  font-size: 1.7rem;
+}
+
+.product-detail .tag {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.product-detail .price {
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0.7rem 0;
+}
+
+.product-detail p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+/* ==========================================
+   CHECKOUT / HACER PEDIDO – versión prolija
+========================================== */
+
+/* Título de la página centrado */
+.container h1 {
+  text-align: center;
+  margin-top: 2.2rem;
+  margin-bottom: 1.6rem;
+}
+
+/* Layout principal del checkout */
+.checkout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Tarjeta del formulario y tarjeta "Tu pedido" */
+.checkout form,
+.checkout aside {
+  background: var(--surface);      /* blanco */
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 1.3rem 1.6rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+/* Formulario ocupa un poco más de ancho que el resumen */
+.checkout form {
+  width: 100%;
+}
+
+.checkout aside {
+  width: 100%;
+}
+
+/* Separación entre fieldsets dentro del form */
+.checkout form fieldset {
+  margin-bottom: 0.9rem;
+}
+
+/* Botón "Confirmar pedido" centrado */
+.checkout form .btn {
+  display: inline-block;
+  margin: 0.6rem auto 0;
+}
+
+/* Lista de items del carrito más prolija */
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.cart-list li:last-child {
+  border-bottom: none;
+}
+
+.total {
+  margin-top: 0.9rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Responsive: en celular se apilan */
+@media (max-width: 900px) {
+  .checkout {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .checkout form,
+  .checkout aside {
+    max-width: 100%;
+  }
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.site-footer {
+  padding: 0.9rem 1rem;
+  border-top: 1px solid var(--border);
+  background: #ffffff;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 2rem;
+  }
+
+  .hero-card {
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    margin-top: 1rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout {
+    grid-template-columns: 1fr;
+  }
+
+  #btnMenu {
+    display: inline-block;
+  }
+
+  #mainNav {
+    position: absolute;
+    top: 3.1rem;
+    right: 1rem;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 0.6rem;
+    min-width: 170px;
+    display: none;
+  }
+
+  #mainNav.open {
+    display: flex;
+  }
+}
+/* ==========================================
+   AJUSTE HERO: IMAGEN DE HAMBURGUESA
+========================================== */
+
+.hero {
+  position: relative; /* para poder usar ::after */
+}
+
+/* oculto el emoji de papas del hero si existe */
+.hero-emoji {
+  display: none;
+}
+
+/* hamburguesa a la derecha del texto */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 70px;            /* bajá/subí si querés moverla */
+  right: 12%;
+  width: 360px;
+  height: 260px;
+  border-radius: 24px;
+  background-image: url("https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35);
+  border: 3px solid #facc15; /* borde amarillo tipo cheddar */
+}
+
+/* en pantallas chicas, la oculto para que no rompa el diseño */
+@media (max-width: 900px) {
+  .hero::after {
+    display: none;
+  }
+}
+/* ==========================================
+   AJUSTE PÁGINA HACER PEDIDO (checkout)
+========================================== */
+
+/* Título de página más separado y marcado */
+.container h1 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* layout del checkout centrado y prolijo */
+.checkout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;      /* centra el formulario y el resumen */
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+/* formulario del cliente */
+.checkout form {
+  flex: 1 1 320px;
+  max-width: 520px;
+}
+
+/* cuadro “Tu pedido” */
+.checkout aside {
+  flex: 1 1 260px;
+  max-width: 420px;
+}
+
+/* que los fieldset no se peguen tanto entre sí */
+.checkout form fieldset {
+  margin-bottom: 0.9rem;
+}
+
+/* centrado del botón confirmar pedido */
+.checkout form .btn {
+  margin-top: 0.4rem;
+}
+
+/* en pantallas chicas, uno debajo del otro */
+@media (max-width: 900px) {
+  .checkout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .checkout form,
+  .checkout aside {
+    max-width: 100%;
+  }
+}
