@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BurgerLab — Menú (Tabla)</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/menu.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">🍔 <strong>BurgerLab</strong></a>
+  </div>
+  <button id="btnMenu" class="menu-button" aria-expanded="false" aria-controls="mainNav">☰</button>
+  <nav id="mainNav" class="nav" hidden>
+    <a href="index.html">Inicio</a>
+    <a href="listado_box.html">Menú (Cards)</a>
+    <a href="listado_tabla.html">Menú (Tabla)</a>
+    <a href="comprar.html">Hacer pedido</a>
+    <a href="#" id="cartLink">🛒 <span id="cartCount">0</span></a>
+  </nav>
+</header>
+<main class="container">
+
+<section class="toolbar">
+  <h1>Menú — Tabla</h1>
+  <div class="controls">
+    <input type="search" id="qTabla" placeholder="Buscar..." />
+    <select id="ordenTabla" aria-label="Ordenar por">
+      <option value="nombre">Nombre (A-Z)</option>
+      <option value="precio_asc">Precio (↑)</option>
+      <option value="precio_desc">Precio (↓)</option>
+    </select>
+  </div>
+</section>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="tbodyProductos"></tbody>
+  </table>
+</div>
+
+</main>
+<footer class="site-footer">
+  <p>© 2025 BurgerLab — TP2 (Paradigmas y Lenguajes de Programación III)</p>
+</footer>
+</body>
+</html>

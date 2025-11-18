@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BurgerLab — Hacer pedido</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/menu.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html">🍔 <strong>BurgerLab</strong></a>
+  </div>
+  <button id="btnMenu" class="menu-button" aria-expanded="false" aria-controls="mainNav">☰</button>
+  <nav id="mainNav" class="nav" hidden>
+    <a href="index.html">Inicio</a>
+    <a href="listado_box.html">Menú (Cards)</a>
+    <a href="listado_tabla.html">Menú (Tabla)</a>
+    <a href="comprar.html">Hacer pedido</a>
+    <a href="#" id="cartLink">🛒 <span id="cartCount">0</span></a>
+  </nav>
+</header>
+<main class="container">
+
+<section class="checkout">
+  <h1>Finalizar pedido</h1>
+  <div class="grid-2">
+    <form id="formCompra" novalidate>
+      <fieldset>
+        <legend>Datos del cliente</legend>
+        <label>Nombre y apellido
+          <input name="nombre" required />
+        </label>
+        <label>Dirección
+          <input name="direccion" required />
+        </label>
+        <label>Teléfono
+          <input name="telefono" type="tel" required pattern="\+?\d[\d\s-]{6,}" />
+        </label>
+        <label>E-mail
+          <input name="email" type="email" required />
+        </label>
+        <label>Medio de pago
+          <select name="pago" required>
+            <option value="">Seleccioná...</option>
+            <option>Efectivo</option>
+            <option>Tarjeta de crédito</option>
+            <option>Transferencia</option>
+            <option>Mercado Pago</option>
+          </select>
+        </label>
+      </fieldset>
+      <button class="btn" type="submit">Confirmar pedido</button>
+      <p id="msgForm" role="alert"></p>
+    </form>
+    <aside>
+      <h2>Tu pedido</h2>
+      <ul id="listaCarrito" class="cart-list"></ul>
+      <p class="total">Total: <strong id="totalCarrito">$0</strong></p>
+    </aside>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <p>© 2025 BurgerLab — TP2 (Paradigmas y Lenguajes de Programación III)</p>
+</footer>
+</body>
+</html>
